@@ -20,8 +20,9 @@
             node-version: 22                                                                                               
             cache: pnpm                                                                                                     
                                                                                                                             
-        - run: corepack enable                                                                                              
-                                                                                                                            
+        - name: Install pnpm
+          run: npm install -g pnpm
+
         - run: pnpm install --frozen-lockfile                                                                               
                                                                                                                             
         - name: Build                                                                                                       
