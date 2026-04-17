@@ -18,12 +18,15 @@
         - uses: actions/setup-node@v4
           with:
             node-version: 22
-            cache: npm
 
-        - run: npm install
+        - name: Install pnpm
+          run: npm install -g pnpm
+
+        - name: Install dependencies
+          run: pnpm install --frozen-lockfile
 
         - name: Build
-          run: npm run build
+          run: pnpm run build
           env:
             CF_PAGES: 1
 
